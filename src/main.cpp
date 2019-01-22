@@ -4,13 +4,12 @@
 int main(int argumentCount, char* arguments)
 {
     using namespace base;
-    FreeList* pFreeList = new FreeList(8, 1024);
-    void* mem1 = pFreeList->retrieve();
-    void* mem2 = pFreeList->retrieve();
-    void* mem3 = pFreeList->retrieve();
-    void* mem4 = pFreeList->retrieve();
-    pFreeList->release(mem2);
-    void* mem5 = pFreeList->retrieve(); // mem5 gets the old memory mem2 had.
-    delete pFreeList;
+    FreeList freeList(8, 1024);
+    void* mem1 = freeList.retrieve();
+    void* mem2 = freeList.retrieve();
+    void* mem3 = freeList.retrieve();
+    void* mem4 = freeList.retrieve();
+    freeList.release(mem2);
+    void* mem5 = freeList.retrieve(); // mem5 gets the old memory mem2 had.
     return 0;
 }

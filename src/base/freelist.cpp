@@ -26,7 +26,7 @@ namespace base
 
     FreeList::~FreeList()
     {
-        delete pBase;
+        delete[] pBase;
         pBase = nullptr;
         pNextFree = nullptr;
         count = 0;
